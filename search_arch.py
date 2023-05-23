@@ -4,10 +4,10 @@ import pprint
 # adapted from https://github.com/conan-io/conan/issues/5661
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('recipe_name', type=str)
-    parser.add_argument('--debug', required=False, type=bool, default=False)
-    parser.add_argument('--arch', required=False, type=str)
-    parser.add_argument("--remote", required=False, type=str, default="all")
+    parser.add_argument('recipe_name', type=str, help='The recipe to be searched, e.g. protobuf')
+    parser.add_argument('--debug', action='store_true', help='Verbose mode')
+    parser.add_argument('--arch', required=False, type=str, help='The arch to be searched, e.g. x86_64, armv8')
+    parser.add_argument("--remote", required=False, type=str, default="all", help='The remote to be searched')
     args = parser.parse_args()
     print ("Remote to be searched:", args.remote)
     conan, _, _ = conan_api.Conan.factory()
