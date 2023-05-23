@@ -33,7 +33,7 @@ if __name__ == "__main__":
         recipe_remote = ""
         if "remote" in packages["results"][0]:
             recipe_remote = packages["results"][0]["remote"]
-        print (" recipe id:", recipe_id, recipe_remote)
+        print (" recipe id:", recipe_id, recipe_remote, len(packages["results"][0]["items"][0]["packages"]))
         # for all packages of this recipe, search the requested arch name
         for package in packages["results"][0]["items"][0]["packages"]:
             if args.debug:
